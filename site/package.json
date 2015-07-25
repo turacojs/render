@@ -1,7 +1,7 @@
 {
   "name": "site",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turaco Render site",
   "main": "index.js",
   "scripts": {
