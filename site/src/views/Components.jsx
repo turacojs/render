@@ -7,7 +7,7 @@ export default newClass({
     extends: View,
 
     constructor() {
-        this.parent = 'layout';
+        this.parent = 'Layout';
         this.title = 'Components';
     },
 

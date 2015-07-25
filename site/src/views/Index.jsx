@@ -7,7 +7,7 @@ export default newClass({
     extends: View,
 
     constructor() {
-        this.parent = 'layout';
+        this.parent = 'Layout';
     },
 
     render(data) {
@@ -52,7 +52,7 @@ import MyListWithBadgesComponent from './MyListWithBadgesComponent';
 export default class MyView extends Component {
     constructor() {
        this.title = 'My View Title';
-       this.parent = 'alayout';
+       this.parent = 'Alayout';
     }
 
     render() {

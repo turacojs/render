@@ -23,7 +23,6 @@ export default newClass({
     },
 
     body($body, data) {
-        console.log(data);
         const $container = $.create('div').setAttribute('class', 'container-page').appendTo($body);
         const $nav = $.create('nav').setAttribute('class', 'nav-col').appendTo($container);
         const $ulMenu = $.create('ul').setAttribute('class', 'list links').appendTo($nav);
