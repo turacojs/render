@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/elements/Fragment.js"],"names":[],"mappings":";;;;;;qBAAe,YAAW;AACtB,WAAO,CAAC,CAAC,cAAc,EAAE,CAAC;CAC7B","file":"Fragment.js","sourcesContent":["export default function() {\n    return $.createFragment();\n}\n"]}

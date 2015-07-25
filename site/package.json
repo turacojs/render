@@ -1,0 +1,33 @@
+{
+  "name": "site",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Turaco Render site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.3",
+    "gulp-revert-path": "^1.0.1",
+    "html-document": "^0.7.2",
+    "minimist": "^1.1.1",
+    "springbokjs-dom": "^0.10.1",
+    "springbokjs-errors": "^2.1.0",
+    "turaco": "../",
+    "turaco-styl": "0.0.1"
+  },
+  "devDependencies": {
+    "babel-plugin-defines": "^1.0.1",
+    "browser-sync": "^2.7.1",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-changed": "^1.2.1",
+    "gulp-grep": "^0.2.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-stylus": "^2.0.1",
+    "springbokjs-daemon": "^0.2.0"
+  }
+}
