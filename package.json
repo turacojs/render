@@ -1,0 +1,26 @@
+{
+  "name": "turaco",
+  "description": "views and components for server and browser",
+  "keywords": [
+    "turacojs"
+  ],
+  "version": "0.1.0",
+  "homepage": "http://turacojs.org",
+  "license": "MIT",
+  "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
+  "repository": "git://github.com/turacojs/render.git",
+  "main": "./lib/index.js",
+  "browser": "./lib/browser/index.js",
+  "devDependencies": {
+    "proclaim": "^3.3.0",
+    "springbokjs-library": "^7.0.5"
+  },
+  "jspm": {
+    "main": "./lib/browser/index.js"
+  },
+  "dependencies": {
+    "esnext-class": "^1.0.0",
+    "html-document": "^0.8.1",
+    "springbokjs-dom": "^0.10.1"
+  }
+}
