@@ -22,5 +22,14 @@
     "esnext-class": "^1.0.0",
     "html-document": "^0.8.1",
     "springbokjs-dom": "^0.10.1"
+  },
+  "scripts": {
+    "preversion": "make pre-version",
+    "version": "make version",
+    "prepublish": "make pre-publish",
+    "postpublish": "make post-publish",
+    "test": "make tests",
+    "build": "make build",
+    "watch": "make watch"
   }
 }
