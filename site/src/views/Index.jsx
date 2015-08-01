@@ -1,13 +1,14 @@
 import { newClass } from 'esnext-class';
 import View from 'turaco/lib/View';
 import Fragment from 'turaco/lib/elements/Fragment'
+import Layout from './Layout';
 
 export default newClass({
     name: 'IndexView',
     extends: View,
 
     constructor() {
-        this.parent = 'Layout';
+        this.parent = Layout;
     },
 
     render(data) {
@@ -48,11 +49,12 @@ export default class MyListWithBadgesComponent extends Component {
                <pre><code>{ `
 import View from 'turaco/lib/View';
 import MyListWithBadgesComponent from './MyListWithBadgesComponent';
+import Layout from './Layout';
 
 export default class MyView extends Component {
     constructor() {
        this.title = 'My View Title';
-       this.parent = 'Alayout';
+       this.parent = Layout;
     }
 
     render() {

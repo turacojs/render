@@ -13,7 +13,7 @@
   "browser": "./lib/browser/index.js",
   "devDependencies": {
     "proclaim": "^3.3.0",
-    "springbokjs-library": "^7.0.5"
+    "springbokjs-library": "^8.0.3"
   },
   "jspm": {
     "main": "./lib/browser/index.js"

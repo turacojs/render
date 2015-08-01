@@ -1,6 +1,10 @@
 export default function createBasicInstanceFactory(dirname, suffix) {
-    return (name) => {
-        const path = dirname + name + (suffix || '') + '.jsx';
+    return (nameOrClass) => {
+        if (typeof nameOrClass === 'function') {
+            const view = new nameOrClass();
+            return view;
+        }
+        const path = dirname + nameOrClass + (suffix || '');
         let module = require(path);
         if (typeof module !== 'function') {
             module = module.default;

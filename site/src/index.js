@@ -19,10 +19,10 @@ process.on('uncaughtException', function(err) {
     }
 });
 
-app.set('view engine', 'jsx');
+app.set('view engine', 'js');
 app.set('views', __dirname + '/views');
 
-app.engine('jsx', expressEngine(app.get('views')));
+app.engine('js', expressEngine(app.get('views')));
 
 app.locals.code = function(args) {
     var contents = args[0]

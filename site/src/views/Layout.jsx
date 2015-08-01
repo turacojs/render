@@ -46,7 +46,7 @@ export default newClass({
             },
             {
                 name: 'Turaco Styl',
-                url: 'http://turacojs-styl.chapplications.com/'
+                url: 'http://turaco-styl.springbokjs.org/'
 
             },
             {

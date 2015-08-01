@@ -1,13 +1,14 @@
 import { newClass } from 'esnext-class';
 import View from 'turaco/lib/View';
-import Fragment from 'turaco/lib/elements/Fragment'
+import Fragment from 'turaco/lib/elements/Fragment';
+import Layout from './Layout';
 
 export default newClass({
     name: 'MultipaneComponentView',
     extends: View,
 
     constructor() {
-        this.parent = 'Layout';
+        this.parent = Layout;
         this.title = 'MultipaneComponent';
     },
 

@@ -5,7 +5,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var babel = require('gulp-babel');
 var changed = require('gulp-changed');
 var stylus = require('gulp-stylus');
-var revertPath = require('gulp-revert-path'); // horrible...
 var grep = require('gulp-grep');
 var browserSync = require('browser-sync');
 var bs;
@@ -34,7 +33,7 @@ gulp.task('js', function() {
         bs.notify("Compiling, please wait!");
     }
     var stream = gulp.src('src/**/*.{js,jsx}')
-        .pipe(changed('lib/'))
+        .pipe(changed('lib/', { extension: '.js' }))
         .pipe(sourcemaps.init())
         .pipe(babel({
             blacklist: [
@@ -53,7 +52,6 @@ gulp.task('js', function() {
                 }
             }
         }))
-        .pipe(revertPath())
         .pipe(sourcemaps.write('.', {sourceRoot: '/'}))
         .pipe(gulp.dest('lib/'));
     if (bs) {
@@ -68,7 +66,7 @@ gulp.task('js-browser', function() {
         bs.notify("Compiling, please wait!");
     }
     var stream = gulp.src('src-browser/**/*.{js,jsx}')
-        .pipe(changed('public/js/'))
+        .pipe(changed('public/js/', { extension: '.js' }))
         .pipe(sourcemaps.init())
         .pipe(babel({
             optional: ['minification.deadCodeElimination']

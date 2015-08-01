@@ -1,13 +1,14 @@
 import { newClass } from 'esnext-class';
 import View from 'turaco/lib/View';
 import Fragment from 'turaco/lib/elements/Fragment';
+import Layout from './Layout';
 
 export default newClass({
     name: 'ViewsView',
     extends: View,
 
     constructor() {
-        this.parent = 'Layout';
+        this.parent = Layout;
         this.title = 'Views';
     },
 
@@ -24,10 +25,11 @@ export default newClass({
 
                 <pre><code>{ `
  import View from 'turaco/lib/View';
+ import Mylayout from './Mylayout';
 
  export default class MyView extends View {
     constructor() {
-        this.parent = 'Mylayout';
+        this.parent = Mylayout;
         this.title = 'Title of the view';
     },
  });

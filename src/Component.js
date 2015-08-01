@@ -28,16 +28,18 @@ export default class Component {
      *
      * Register events here
      */
+    /*component.ready can be undefined
     ready() {
 
-    }
+    }*/
 
     /**
      * Invoked once on the browser
      */
+    /*component.destroy can be undefined
     destroy() {
 
-    }
+    }*/
 
     toHtmlString() {
         return this.$container.outerHTML;

@@ -18,7 +18,7 @@ export default function createExpressEngine(dirname) {
     })(), componentRenderer);
 
     return (path, data, callback) => {
-        const name = path.slice(dirname.length, -4);
+        const name = path.slice(dirname.length, -3);
         let result = viewRenderer.createThenRender(name, data.properties, data);
         if (typeof result.then === 'function') {
             return result.then((result) => callback(null, result.toHtmlString())).catch((err) => callback(err));

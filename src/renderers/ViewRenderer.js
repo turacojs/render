@@ -11,18 +11,17 @@ export default class ViewRenderer extends ComponentRender {
     }
 
     render(view, properties, data) {
-        view.component = componentName => {
+        view.component = componentClass => {
             return properties => {
                 const data = properties && properties.data;
                 if (properties) {
                     delete properties.data;
                 }
-                return this.componentRenderer.createThenRender(componentName, properties, data)
+                return this.componentRenderer.createThenRender(componentClass, properties, data)
             };
         };
         view.init(properties);
         view.create();
-        this._initElements(view);
 
         if (properties) {
             view.$container.setAttribute('data-view-properties', JSON.stringify(properties));
