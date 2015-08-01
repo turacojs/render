@@ -1,3 +1,7 @@
+### v0.1.12
+
+- [`59a8664`](https://github.com/git://github.com/turacojs/render.git/commit/59a8664231707c9f4e762a3ec3a9c7276cae8371) _initComponents (Christophe Hurpeau)
+
 ### v0.1.11
 
 - [`969d58b`](https://github.com/git://github.com/turacojs/render.git/commit/969d58b659a1cc2a442fbb875deb97517ce3172c) view.component supports (properties, data) (Christophe Hurpeau)
