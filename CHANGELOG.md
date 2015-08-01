@@ -1,3 +1,7 @@
+### v0.1.13
+
+- [`6c649fb`](https://github.com/git://github.com/turacojs/render.git/commit/6c649fbc83d0c206f9e221c9cedfef2ff3b48bc2) in views set components not elements (Christophe Hurpeau)
+
 ### v0.1.12
 
 - [`59a8664`](https://github.com/git://github.com/turacojs/render.git/commit/59a8664231707c9f4e762a3ec3a9c7276cae8371) _initComponents (Christophe Hurpeau)
