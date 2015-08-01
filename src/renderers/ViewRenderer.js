@@ -33,6 +33,8 @@ export default class ViewRenderer extends ComponentRender {
         view.init(properties);
         view.create();
 
+        this._initComponents(view);
+
         if (properties) {
             view.$container.setAttribute('data-view-properties', JSON.stringify(properties));
         }

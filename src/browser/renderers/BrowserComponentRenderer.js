@@ -41,8 +41,9 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
     render(component, properties, data) {
         component.properties = properties || {};
         component.init(component.properties);
-        this._initElements(component);
         component.create();
+        this._initElements(component);
+        this._initComponents(component);
 
         const renderResult = component.render(data);
 

@@ -30,6 +30,18 @@ export default class ComponentRenderer {
         }
     }
 
+    _initComponents(component) {
+        if (component.components && component.components.length) {
+            component.components.forEach((componentName) => {
+                if (!component[componentName]) {
+                    throw new Error('Missing component ' + componentName);
+                }
+
+                component[componentName].$container.setAttribute('data-role', componentName);
+            });
+        }
+    }
+
     render(component, properties, data) {
         component.component = componentClass => {
             return properties => {
@@ -48,6 +60,7 @@ export default class ComponentRenderer {
         component.create();
 
         this._initElements(component);
+        this._initComponents(component);
 
         const renderResult = component.render(data);
 

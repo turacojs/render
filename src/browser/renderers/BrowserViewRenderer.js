@@ -11,6 +11,12 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
             properties = properties && JSON.parse(properties);
             view.init(properties);
 
+            if (view.components && view.components.length) {
+                view.components.forEach((componentName) => {
+                    view[componentName] = view.$container.findFirst('[data-role="' + componentName + '"]');
+                });
+            }
+
             if (view.ready) {
                 view.ready(properties);
             }
@@ -21,7 +27,8 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
 
     render(view, properties, data) {
         view.init(properties);
-        view._initElements();
+        view.create();
+        this._initComponents(view);
 
         return Promise.resolve(view.render(data)).then((renderResult) => {
             if (renderResult) {
