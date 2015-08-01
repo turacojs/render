@@ -1,3 +1,7 @@
+### v0.1.3
+
+- [`b0fed52`](https://github.com/git://github.com/turacojs/render.git/commit/b0fed5219be34eacb93941b31431bc8db79df03a) load browser components: Promise (Christophe Hurpeau)
+
 ### v0.1.2
 
 - [`ab89d4f`](https://github.com/git://github.com/turacojs/render.git/commit/ab89d4f8eb5731385f73d80cc8aa86dde82da527) install scripts (Christophe Hurpeau)
