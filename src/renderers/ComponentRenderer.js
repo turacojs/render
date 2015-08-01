@@ -1,3 +1,5 @@
+import $ from 'springbokjs-dom/lib/$';
+
 export default class ComponentRenderer {
     /**
      * @param {ComponentFactory} factory
@@ -9,6 +11,18 @@ export default class ComponentRenderer {
     createThenRender(componentClass, properties, data) {
         const component = this.factory.create(componentClass);
         return this.render(component, properties, data);
+    }
+
+    _initElements(component) {
+        if (component.elements && component.elements.length) {
+            component.elements.forEach((elementName) => {
+                if (!component['$' + elementName]) {
+                    component['$' + elementName] = $.create('div');
+                }
+
+                component['$' + elementName].setAttribute('data-role', elementName);
+            });
+        }
     }
 
     render(component, properties, data) {
@@ -27,6 +41,8 @@ export default class ComponentRenderer {
         }
 
         component.create();
+
+        this._initElements(component);
 
         const renderResult = component.render(data);
 

@@ -9,13 +9,23 @@ export default class ViewFactory {
     }
 
     /**
+     * @param {Function} viewClass
+     * @returns {View}
+     */
+    create(viewClass) {
+        const view = this.instanceFactory(viewClass);
+        view.$container = $.create('div');
+        view.$container.attr('data-view', viewClass.name);
+        return view;
+    }
+
+    /**
      * @param {string} viewName
      * @returns {View}
      */
-    create(viewName) {
+    load(viewName, $container) {
         const view = this.instanceFactory(viewName);
-        view.$container = $.create('div');
-        view.$container.attr('data-view', viewName);
+        view.$container = $container;
         return view;
     }
 }

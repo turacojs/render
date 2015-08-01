@@ -5,18 +5,6 @@ export default class ComponentFactory {
         this.instanceFactory = instanceFactory;
     }
 
-    _initElements(component) {
-        if (component.elements && component.elements.length) {
-            component.elements.forEach((elementName) => {
-                if (!component['$' + elementName]) {
-                    component['$' + elementName] = $.create('div');
-                }
-
-                component['$' + elementName].setAttribute('data-role', elementName);
-            });
-        }
-    }
-
     create(componentClass, $container) {
         const component = this.instanceFactory(componentClass);
         if ($container) {
@@ -25,7 +13,6 @@ export default class ComponentFactory {
             component.$container = $.create('div');
         }
 
-        this._initElements(component);
         component.$container.attr('data-component', componentClass.name);
         component.$container.attr(
             'data-component-preload',
@@ -36,7 +23,6 @@ export default class ComponentFactory {
             component.$container.on('dispose', () => component.destroy());
         }
 
-        component.elements = component.elements || [];
         return component;
     }
 
