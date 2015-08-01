@@ -6,12 +6,13 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
      * Invoked only on browser just the first time
      */
     load(viewName, $view) {
-        const view = this.factory.create(viewName, $view);
-        let properties = $view.getAttribute('data-view-properties');
-        properties = properties && JSON.parse(properties);
-        view.init(properties);
-        view.load(properties);
-        $view._view = view;
+        return Promise.resolve(this.factory.create(viewName, $view)).then((view) => {
+            let properties = $view.getAttribute('data-view-properties');
+            properties = properties && JSON.parse(properties);
+            view.init(properties);
+            view.load(properties);
+            $view._view = view;
+        });
     }
 
     render(view, properties, data) {
