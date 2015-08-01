@@ -31,7 +31,17 @@ export default class ComponentRenderer {
         const renderResult = component.render(data);
 
         if (renderResult instanceof Promise) {
-            return renderResult.then(() => component);
+            return renderResult.then((renderResult) => {
+                if (renderResult) {
+                    component.$container.empty().append(renderResult);
+                }
+
+                return component;
+            });
+        }
+
+        if (renderResult) {
+            component.$container.empty().append(renderResult);
         }
 
         return component;

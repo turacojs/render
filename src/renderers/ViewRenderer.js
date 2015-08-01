@@ -14,6 +14,7 @@ export default class ViewRenderer extends ComponentRender {
         view.component = componentClass => {
             return properties => {
                 const data = properties && properties.data;
+
                 if (properties) {
                     delete properties.data;
                 }

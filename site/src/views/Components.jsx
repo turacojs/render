@@ -29,7 +29,7 @@ export default newClass({
                         </ul>
                     </div>
                     <div class="col w-200">
-                        <h3 class="text-paragraph-title">Load of the rendered components by server</h3>
+                        <h3 class="text-paragraph-title">Load of the rendered components, by browser</h3>
                         <ul class="list">
                             <li>init(properties)</li>
                             <li>load(properties)</li>

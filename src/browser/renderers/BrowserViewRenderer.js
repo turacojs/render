@@ -6,11 +6,15 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
      * Invoked only on browser just the first time
      */
     load(viewName, $view) {
-        return Promise.resolve(this.factory.create(viewName, $view)).then((view) => {
+        return Promise.resolve(this.factory.load(viewName, $view)).then((view) => {
             let properties = $view.getAttribute('data-view-properties');
             properties = properties && JSON.parse(properties);
             view.init(properties);
-            view.ready(properties);
+
+            if (view.ready) {
+                view.ready(properties);
+            }
+
             $view._view = view;
         });
     }
@@ -19,7 +23,11 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
         view.init(properties);
         view._initElements();
 
-        return Promise.resolve(view.render(data)).then(() => {
+        return Promise.resolve(view.render(data)).then((renderResult) => {
+            if (renderResult) {
+                view.$container.empty().append(renderResult);
+            }
+
             if (!view.parent) {
                 throw new Error('Cannot render a view without a parent: ' + view.constructor.name);
             }

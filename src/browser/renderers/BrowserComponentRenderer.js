@@ -8,7 +8,7 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
      * @param {Element} $container
      */
     load(componentName, $container) {
-        return Promise.resolve(this.factory.create(componentName, $container)).then((component) => {
+        return Promise.resolve(this.factory.load(componentName, $container)).then((component) => {
             let properties = $container.getAttribute('data-component-properties');
             properties = properties && JSON.parse(properties);
             component.properties = properties || {};
@@ -20,8 +20,14 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
                 });
             }
 
-            component.load(component.properties);
-            component.ready();
+            if (component.load) {
+                component.load(component.properties);
+            }
+
+            if (component.ready) {
+                component.ready();
+            }
+
             $container._component = component;
         });
     }
@@ -41,10 +47,18 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
         const renderResult = component.render(data);
 
         if (renderResult instanceof Promise) {
-            return renderResult.then(() => {
+            return renderResult.then((content) => {
+                if (content) {
+                    component.$container.empty().append(content);
+                }
+
                 component.ready();
                 return component;
             });
+        }
+
+        if (renderResult) {
+            component.$container.empty().append(renderResult);
         }
 
         component.ready();
