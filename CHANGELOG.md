@@ -1,3 +1,7 @@
+### v0.1.8
+
+- [`a8cfce4`](https://github.com/git://github.com/turacojs/render.git/commit/a8cfce487cdcc2d455abd63cb80724e167caa2bc) init elements from components and fix load view in browser (Christophe Hurpeau)
+
 ### v0.1.7
 
 - [`e65866a`](https://github.com/git://github.com/turacojs/render.git/commit/e65866a9dafe1b0b7e6f64ccd9e0c4ff10ff766b) renderers and loaders (Christophe Hurpeau)
