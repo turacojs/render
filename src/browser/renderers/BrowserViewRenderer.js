@@ -13,7 +13,7 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
 
             let promises;
             if (view.components && view.components.length) {
-                promises = view.components.forEach((componentName) => {
+                promises = view.components.map((componentName) => {
                     const $component = view.$container.findFirst('[data-role="' + componentName + '"]');
                     if (!$component._component) {
                         throw new Error('Component is not loaded');
