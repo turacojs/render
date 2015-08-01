@@ -11,17 +11,30 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
             properties = properties && JSON.parse(properties);
             view.init(properties);
 
+            let promises;
             if (view.components && view.components.length) {
-                view.components.forEach((componentName) => {
-                    view[componentName] = view.$container.findFirst('[data-role="' + componentName + '"]');
+                promises = view.components.forEach((componentName) => {
+                    const $component = view.$container.findFirst('[data-role="' + componentName + '"]');
+                    if (!$component._component) {
+                        throw new Error('Component is not loaded');
+                    }
+
+                    return Promise.resolve($component._component).then((component) => {
+                        view[componentName] = component;
+                    });
                 });
+            } else {
+                promises = [];
             }
 
-            if (view.ready) {
-                view.ready(properties);
-            }
+            return Promise.all(promises).then(() => {
+                if (view.ready) {
+                    view.ready(properties);
+                }
 
-            $view._view = view;
+                $view._view = view;
+                return view;
+            });
         });
     }
 

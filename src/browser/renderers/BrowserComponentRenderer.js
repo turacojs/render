@@ -8,7 +8,7 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
      * @param {Element} $container
      */
     load(componentName, $container) {
-        return Promise.resolve(this.factory.load(componentName, $container)).then((component) => {
+        const promise = Promise.resolve(this.factory.load(componentName, $container)).then((component) => {
             let properties = $container.getAttribute('data-component-properties');
             properties = properties && JSON.parse(properties);
             component.properties = properties || {};
@@ -30,6 +30,8 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
 
             $container._component = component;
         });
+        $container._component = promise;
+        return promise;
     }
 
     /**
