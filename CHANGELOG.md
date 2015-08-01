@@ -1,3 +1,7 @@
+### v0.1.14
+
+- [`f5e5ab4`](https://github.com/git://github.com/turacojs/render.git/commit/f5e5ab423a86a90457afd4c3e616c5cb447ff1a1) fix last release (Christophe Hurpeau)
+
 ### v0.1.13
 
 - [`6c649fb`](https://github.com/git://github.com/turacojs/render.git/commit/6c649fbc83d0c206f9e221c9cedfef2ff3b48bc2) in views set components not elements (Christophe Hurpeau)
