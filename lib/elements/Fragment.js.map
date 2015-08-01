@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/elements/Fragment.js"],"names":[],"mappings":";;;;;;qBAAe,YAAW;AACtB,WAAO,CAAC,CAAC,cAAc,EAAE,CAAC;CAC7B","file":"Fragment.js","sourcesContent":["export default function() {\n    return $.createFragment();\n}\n"]}
+{"version":3,"sources":["../../src/elements/Fragment.js"],"names":[],"mappings":";;;;;;;;kCAAc,uBAAuB;;;;qCAEtB,YAAW;AACtB,WAAO,gCAAE,cAAc,EAAE,CAAC;CAC7B","file":"Fragment.js","sourcesContent":["import $ from 'springbokjs-dom/lib/$';\n\nexport default function() {\n    return $.createFragment();\n}\n"]}

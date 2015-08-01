@@ -1,5 +1,2 @@
-'use strict';
-
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+"use strict";
 //# sourceMappingURL=test.js.map
