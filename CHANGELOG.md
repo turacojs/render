@@ -1,3 +1,7 @@
+### v0.1.10
+
+- [`215f735`](https://github.com/git://github.com/turacojs/render.git/commit/215f735d1c1a8ea811ddfb5d116ef27a7b47e0ff) fix Promise when loading (Christophe Hurpeau)
+
 ### v0.1.9
 
 - [`ee17c8c`](https://github.com/git://github.com/turacojs/render.git/commit/ee17c8cff70bce63e5701191465cfd987bc0b704) views and components render (Christophe Hurpeau)
