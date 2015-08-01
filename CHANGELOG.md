@@ -1,3 +1,7 @@
+### v0.1.6
+
+- [`662120b`](https://github.com/git://github.com/turacojs/render.git/commit/662120b5629c7e72df62cfa43e4d6150f87e7cfc) browser loader views = new WeakMap (Christophe Hurpeau)
+
 ### v0.1.5
 
 - [`93db8e7`](https://github.com/git://github.com/turacojs/render.git/commit/93db8e745099cfa9c0df87b09690676cfb3c9f9b) load browser views: Promise (Christophe Hurpeau)
