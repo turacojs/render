@@ -29,19 +29,11 @@ export default class ComponentFactory {
     load(componentName, $container) {
         const component = this.instanceFactory(componentName);
 
-        return Promise.resolve(component).then(() => {
+        return Promise.resolve(component).then((component) => {
             component.$container = $container;
 
             if (component.destroy) {
                 component.$container.on('dispose', () => component.destroy());
-            }
-
-            if (component.elements && component.elements.length) {
-                component.elements.forEach((elementName) => {
-                    if (!component['$' + elementName]) {
-                        component['$' + elementName] = $container.find('[data-role="' + elementName + '"]');
-                    }
-                });
             }
 
             return component;

@@ -25,7 +25,9 @@ export default class ViewFactory {
      */
     load(viewName, $container) {
         const view = this.instanceFactory(viewName);
-        view.$container = $container;
-        return view;
+        return Promise.resolve(view).then((view) => {
+            view.$container = $container;
+            return view;
+        });
     }
 }
