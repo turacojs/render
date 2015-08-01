@@ -1,4 +1,6 @@
-export default class Component {
+import { EventEmitter } from 'events';
+
+export default class Component extends EventEmitter {
     /**
      * Invoked on both server and browser (even the first time for the browser)
      */
