@@ -8,16 +8,16 @@ export function loadComponents(componentLoader) {
 }
 
 export function loadViews(viewLoader) {
-    const views = {};
+    const views = new WeakMap();
     $('[data-view]').forEach(($view) => {
         const viewName = $view.getAttribute('data-view');
         views[viewName] = viewLoader.load(viewName, $view);
     }).forEach(($view) => {
         const parent = $view.getAttribute('data-view-parent');
 
-        if (parent) {
+        if (parent && views.has(parent)) {
             $view._view._parent = views[parent];
-            views[parent]._child = $view._view;
+            views.get(parent)._child = $view._view;
         }
     });
     return views;

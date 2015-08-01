@@ -10,7 +10,7 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
             let properties = $view.getAttribute('data-view-properties');
             properties = properties && JSON.parse(properties);
             view.init(properties);
-            view.load(properties);
+            view.ready(properties);
             $view._view = view;
         });
     }
