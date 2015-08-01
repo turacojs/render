@@ -21,6 +21,7 @@ export default class ComponentRenderer {
         };
 
         component.init(properties);
+
         if (properties) {
             component.$container.attr('data-component-properties', JSON.stringify(properties));
         }
