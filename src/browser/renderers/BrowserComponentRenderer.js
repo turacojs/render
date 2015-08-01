@@ -6,7 +6,7 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
      */
     load(componentName, $container) {
         const component = this.factory.create(componentName, $container);
-        var properties = $container.getAttribute('data-component-properties');
+        let properties = $container.getAttribute('data-component-properties');
         properties = properties && JSON.parse(properties);
         component.properties = properties || {};
         component.init(component.properties);
@@ -27,13 +27,16 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
         component.init(component.properties);
         this._initElements(component);
         component.create();
-        var renderResult = component.render(data);
+
+        const renderResult = component.render(data);
+
         if (renderResult instanceof Promise) {
             return renderResult.then(() => {
                 component.ready();
                 return component;
             });
         }
+
         component.ready();
         return component;
     }

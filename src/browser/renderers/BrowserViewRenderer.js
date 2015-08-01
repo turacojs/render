@@ -1,4 +1,5 @@
 import BrowserComponentRenderer from './BrowserComponentRenderer';
+import $ from 'springbokjs-dom/lib/$';
 
 export default class BrowserViewRenderer extends BrowserComponentRenderer {
     /**
@@ -6,13 +7,12 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
      */
     load(viewName, $view) {
         const view = this.factory.create(viewName, $view);
-        var properties = $view.getAttribute('data-view-properties');
+        let properties = $view.getAttribute('data-view-properties');
         properties = properties && JSON.parse(properties);
         view.init(properties);
         view.load(properties);
         $view._view = view;
     }
-
 
     render(view, properties, data) {
         view.init(properties);
@@ -20,9 +20,10 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
 
         return Promise.resolve(view.render(data)).then(() => {
             if (!view.parent) {
-                throw new Error('Cannot render a view without a parent: ' + viewName);
+                throw new Error('Cannot render a view without a parent: ' + view.constructor.name);
             }
-            var $parentView = $.first('[data-view="' + view.parent + '"]');
+
+            const $parentView = $.first('[data-view="' + view.parent + '"]');
 
             if ($parentView) {
                 $parentView._view.update(view);
@@ -32,7 +33,7 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
 
             return this.createThenRender(view.parent, {
                 title: view.title,
-                content: view.$fragment
+                content: view.$fragment,
             }).then((parent) => {
                 view._parent = parent;
                 return view;

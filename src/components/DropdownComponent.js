@@ -1,5 +1,7 @@
-/* global S */
-export default class DropdownComponent extends S.Component {
+import Component from '../Component';
+import $ from 'springbokjs-dom/lib/$';
+
+export default class DropdownComponent extends Component {
     init() {
         this.elements.push('link', 'menu');
     }
@@ -29,7 +31,6 @@ export default class DropdownComponent extends S.Component {
     }
 
     ready() {
-        console.log('prepare DropdownComponent');
         this.$link.on('click', (e) => {
             e.preventDefault();
             e.stopPropagation();

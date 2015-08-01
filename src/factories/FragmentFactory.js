@@ -6,7 +6,7 @@ export default class ComponentFactory {
     }
 
     create(fragmentName) {
-        var fragment = this.instanceFactory(fragmentName);
+        const fragment = this.instanceFactory(fragmentName);
         fragment.$fragment = $.createFragment();
         return fragment;
     }

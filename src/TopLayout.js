@@ -17,11 +17,13 @@ export default class TopLayout extends View {
         if (this.head) {
             this.$head.append(this.head());
         }
+
         if (data.title) {
             this.$head.append($.create('title').text(data.title));
         }
+
         if (this.body) {
-            var res = this.body(this.$body, data);
+            const res = this.body(this.$body, data);
             if (res) {
                 this.$body.append(res);
             }

@@ -2,8 +2,8 @@ import ComponentRender from './ComponentRenderer';
 
 export default class ViewRenderer extends ComponentRender {
     /**
-     * @param ViewFactory factory
-     * @param ComponentRender componentRenderer
+     * @param {ViewFactory} factory
+     * @param {ComponentRender} componentRenderer
      */
     constructor(factory, componentRenderer) {
         super(factory);
@@ -17,9 +17,11 @@ export default class ViewRenderer extends ComponentRender {
                 if (properties) {
                     delete properties.data;
                 }
-                return this.componentRenderer.createThenRender(componentClass, properties, data)
+
+                return this.componentRenderer.createThenRender(componentClass, properties, data);
             };
         };
+
         view.init(properties);
         view.create();
 

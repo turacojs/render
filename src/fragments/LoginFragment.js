@@ -1,8 +1,9 @@
 import Fragment from '../Fragment';
+import $ from 'springbokjs-dom/lib/$';
 
 export default class LoginFragment extends Fragment {
     init() {
-        this.$form = this.helper.FormForModel('User').action('/login').setClass('w400 centered big')
+        this.$form = this.helper.createFormForModel('User').action('/login').setClass('w400 centered big')
             .append('<h2>' + this.helper.tC('Sign in') + '</h2>')
             .fieldsetStart()
                 .input('_id').setAttribute('name', 'login').label('Username').placeholder('Enter your username').end()

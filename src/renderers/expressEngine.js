@@ -5,7 +5,7 @@ import ComponentFactory from '../factories/ComponentFactory';
 import createBasicInstanceFactory from '../factories/basicInstanceFactory';
 
 export default function createExpressEngine(dirname) {
-    if (dirname[dirname.length -1] !== '/') {
+    if (dirname[dirname.length - 1] !== '/') {
         dirname += '/';
     }
 
@@ -23,6 +23,7 @@ export default function createExpressEngine(dirname) {
         if (typeof result.then === 'function') {
             return result.then((result) => callback(null, result.toHtmlString())).catch((err) => callback(err));
         }
+
         callback(null, result.toHtmlString());
     };
 }

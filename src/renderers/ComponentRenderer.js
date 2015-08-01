@@ -1,16 +1,13 @@
-import $ from 'springbokjs-dom/lib/$';
-
 export default class ComponentRenderer {
     /**
-     * @param ComponentFactory factory
+     * @param {ComponentFactory} factory
      */
     constructor(factory) {
         this.factory = factory;
     }
 
-
     createThenRender(componentClass, properties, data) {
-        var component = this.factory.create(componentClass);
+        const component = this.factory.create(componentClass);
         return this.render(component, properties, data);
     }
 
@@ -19,18 +16,23 @@ export default class ComponentRenderer {
             return properties => {
                 const data = properties.data;
                 delete properties.data;
-                return this.createThenRender(componentClass, properties, data)
+                return this.createThenRender(componentClass, properties, data);
             };
         };
+
         component.init(properties);
         if (properties) {
             component.$container.attr('data-component-properties', JSON.stringify(properties));
         }
+
         component.create();
-        var renderResult = component.render(data);
+
+        const renderResult = component.render(data);
+
         if (renderResult instanceof Promise) {
             return renderResult.then(() => component);
         }
+
         return component;
     }
 }
