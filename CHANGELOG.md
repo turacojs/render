@@ -1,3 +1,8 @@
+### v0.1.11
+
+- [`969d58b`](https://github.com/git://github.com/turacojs/render.git/commit/969d58b659a1cc2a442fbb875deb97517ce3172c) view.component supports (properties, data) (Christophe Hurpeau)
+- [`6374f00`](https://github.com/git://github.com/turacojs/render.git/commit/6374f005d6762841f94a2558394124b4a4ba1cdf) Components extends EventEmitter (Christophe Hurpeau)
+
 ### v0.1.10
 
 - [`215f735`](https://github.com/git://github.com/turacojs/render.git/commit/215f735d1c1a8ea811ddfb5d116ef27a7b47e0ff) fix Promise when loading (Christophe Hurpeau)
