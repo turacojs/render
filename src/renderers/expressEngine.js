@@ -1,7 +1,5 @@
 import ViewRenderer from './ViewRenderer';
-import ViewFactory from '../factories/ViewFactory';
 import ComponentRenderer from './ComponentRenderer';
-import ComponentFactory from '../factories/ComponentFactory';
 import createBasicInstanceFactory from '../factories/basicInstanceFactory';
 
 export default function createExpressEngine(dirname) {
@@ -9,13 +7,14 @@ export default function createExpressEngine(dirname) {
         dirname += '/';
     }
 
-    const componentRenderer = new ComponentRenderer((function() {
-        return new ComponentFactory(createBasicInstanceFactory(dirname + 'components/', 'Component'));
-    })());
+    const componentRenderer = new ComponentRenderer(
+        createBasicInstanceFactory(dirname + 'components/', 'Component')
+    );
 
-    const viewRenderer = new ViewRenderer((function() {
-        return new ViewFactory(createBasicInstanceFactory(dirname));
-    })(), componentRenderer);
+    const viewRenderer = new ViewRenderer(
+        createBasicInstanceFactory(dirname, 'View'),
+        componentRenderer
+    );
 
     return (path, data, callback) => {
         const name = path.slice(dirname.length, -3);

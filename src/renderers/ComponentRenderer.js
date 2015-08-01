@@ -1,10 +1,15 @@
 import $ from 'springbokjs-dom/lib/$';
+import ComponentFactory from '../factories/ComponentFactory';
 
 export default class ComponentRenderer {
     /**
-     * @param {ComponentFactory} factory
+     * @param {ComponentFactory|Function} factory
      */
     constructor(factory) {
+        if (typeof factory === 'function') {
+            factory = new ComponentFactory(factory);
+        }
+
         this.factory = factory;
     }
 

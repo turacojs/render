@@ -15,7 +15,7 @@ export default class ViewFactory {
     create(viewClass) {
         const view = this.instanceFactory(viewClass);
         view.$container = $.create('div');
-        view.$container.attr('data-view', viewClass.name);
+        view.$container.attr('data-view', view.constructor.name);
         return view;
     }
 

@@ -1,16 +1,21 @@
 import ComponentRender from './ComponentRenderer';
+import ViewFactory from '../factories/ViewFactory';
 
 export default class ViewRenderer extends ComponentRender {
     /**
-     * @param {ViewFactory} factory
+     * @param {ViewFactory|Function} factory
      * @param {ComponentRender} componentRenderer
      */
     constructor(factory, componentRenderer) {
+        if (typeof factory === 'function') {
+            factory = new ViewFactory(factory);
+        }
+
         super(factory);
         this.componentRenderer = componentRenderer;
     }
 
-    render(view, properties, data) {
+    render(view, properties, data = {}) {
         view.component = componentClass => {
             return properties => {
                 const data = properties && properties.data;
@@ -31,7 +36,7 @@ export default class ViewRenderer extends ComponentRender {
         }
 
         if (view.parent) {
-            view.$container.setAttribute('data-view-parent', view.parent);
+            view.$container.setAttribute('data-view-parent', view.parent.name);
         }
 
         return Promise.resolve(view.render(data)).then((content) => {
