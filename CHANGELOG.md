@@ -1,3 +1,7 @@
+### v0.1.4
+
+- [`89038fd`](https://github.com/git://github.com/turacojs/render.git/commit/89038fd0c1085248263abc45b9a2daa101e7d06b) browser/basicInstanceFactory (Christophe Hurpeau)
+
 ### v0.1.3
 
 - [`b0fed52`](https://github.com/git://github.com/turacojs/render.git/commit/b0fed5219be34eacb93941b31431bc8db79df03a) load browser components: Promise (Christophe Hurpeau)
