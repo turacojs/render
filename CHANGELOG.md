@@ -1,3 +1,8 @@
+### v0.1.15
+
+- [`db79340`](https://github.com/git://github.com/turacojs/render.git/commit/db793408fd2ba90db6c2c29fcd1ba376f5bd694d) update springbokjs-dom (Christophe Hurpeau)
+
+
 ### v0.1.14
 
 - [`f5e5ab4`](https://github.com/git://github.com/turacojs/render.git/commit/f5e5ab423a86a90457afd4c3e616c5cb447ff1a1) fix last release (Christophe Hurpeau)
