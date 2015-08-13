@@ -29,6 +29,8 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
             }
 
             $container._component = component;
+
+            return component;
         });
         $container._component = promise;
         return promise;
