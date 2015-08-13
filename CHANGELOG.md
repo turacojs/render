@@ -1,3 +1,8 @@
+### v0.1.16
+
+- [`f8223b5`](https://github.com/git://github.com/turacojs/render.git/commit/f8223b52f5e0526097f3429a36a7dae2655bb70c) fix in BrowserComponentRenderer on load (Christophe Hurpeau)
+
+
 ### v0.1.15
 
 - [`db79340`](https://github.com/git://github.com/turacojs/render.git/commit/db793408fd2ba90db6c2c29fcd1ba376f5bd694d) update springbokjs-dom (Christophe Hurpeau)
