@@ -51,14 +51,14 @@ import View from 'turaco/lib/View';
 import MyListWithBadgesComponent from './MyListWithBadgesComponent';
 import Layout from './Layout';
 
-export default class MyView extends Component {
+export default class MyView extends View {
     constructor() {
-       this.title = 'My View Title';
-       this.parent = Layout;
+        this.title = 'My View Title';
+        this.parent = Layout;
     }
 
     render() {
-       return (<MyListWithBadgesComponent></MyListWithBadgesComponent>);
+        return (<MyListWithBadgesComponent></MyListWithBadgesComponent>);
     }
 }
                `.trim() }</code></pre>
@@ -70,7 +70,7 @@ import TopLayout from 'turaco/lib/TopLayout';
 
 export default class MyLayout extends TopLayout {
     head() {
-       return \`
+        return \`
     <script src="//cdn.polyfill.io/v1/polyfill.min.js?features=all"></script>
 
     <!--Import style -->
@@ -79,13 +79,14 @@ export default class MyLayout extends TopLayout {
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-       \`;
-    },
+        \`;
+    }
 
     body($body, data) {
-       $body.appendText('Hello World');
+        const $container = $.create('div').setAttribute('class', 'container-page').appendTo($body);
+        this.$content = $container;
     }
-});
+}
                `.trim() }</code></pre>
             </Fragment>
         );
