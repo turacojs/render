@@ -1,12 +1,16 @@
 import $ from 'springbokjs-dom/lib/$';
 
-export default class ComponentFactory {
+export default class FragmentFactory {
     constructor(instanceFactory) {
         this.instanceFactory = instanceFactory;
     }
 
-    create(fragmentName) {
-        const fragment = this.instanceFactory(fragmentName);
+    /**
+     * @param {Function|*} fragmentClass
+     * @returns {*}
+     */
+    create(fragmentClass) {
+        const fragment = this.instanceFactory(fragmentClass);
         fragment.$fragment = $.createFragment();
         return fragment;
     }

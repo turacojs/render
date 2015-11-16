@@ -16,12 +16,6 @@ export default class Component extends EventEmitter {
     /**
      * Invoked on both server and browser (except the first time for the browser)
      */
-    create(data) {
-    }
-
-    /**
-     * Invoked on both server and browser (except the first time for the browser)
-     */
     render(data) {
     }
 

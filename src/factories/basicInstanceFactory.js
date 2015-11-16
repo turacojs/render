@@ -15,7 +15,6 @@ export default function createBasicInstanceFactory(dirname, suffix) {
             module = module.default;
         }
 
-        const view = new module();
-        return view;
+        return new module();
     };
 }

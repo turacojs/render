@@ -9,7 +9,7 @@ export default class ViewFactory {
     }
 
     /**
-     * @param {Function} viewClass
+     * @param {Function|*} viewClass
      * @returns {View}
      */
     create(viewClass) {

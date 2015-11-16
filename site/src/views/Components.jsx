@@ -24,7 +24,6 @@ export default newClass({
                         <h3 class="text-paragraph-title">Render by server</h3>
                         <ul class="list">
                             <li>init(properties)</li>
-                            <li>create()</li>
                             <li>render(data): Promise | Element?</li>
                         </ul>
                     </div>
@@ -40,7 +39,6 @@ export default newClass({
                         <h3 class="text-paragraph-title">Render by browser</h3>
                         <ul class="list">
                             <li>init(properties)</li>
-                            <li>create()</li>
                             <li>render(data): Promise | Element?</li>
                             <li>ready()</li>
                         </ul>

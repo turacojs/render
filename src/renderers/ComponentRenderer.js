@@ -1,4 +1,3 @@
-import $ from 'springbokjs-dom/lib/$';
 import ComponentFactory from '../factories/ComponentFactory';
 
 export default class ComponentRenderer {
@@ -18,19 +17,17 @@ export default class ComponentRenderer {
         return this.render(component, properties, data);
     }
 
-    _initElements(component) {
+    _setElementsRole(component) {
         if (component.elements && component.elements.length) {
             component.elements.forEach((elementName) => {
-                if (!component['$' + elementName]) {
-                    component['$' + elementName] = $.create('div');
+                if (component['$' + elementName]) {
+                    component['$' + elementName].setAttribute('data-role', elementName);
                 }
-
-                component['$' + elementName].setAttribute('data-role', elementName);
             });
         }
     }
 
-    _initComponents(component) {
+    _setComponentsRole(component) {
         if (component.components && component.components.length) {
             component.components.forEach((componentName) => {
                 if (!component[componentName]) {
@@ -57,12 +54,9 @@ export default class ComponentRenderer {
             component.$container.attr('data-component-properties', JSON.stringify(properties));
         }
 
-        component.create();
-
-        this._initElements(component);
-        this._initComponents(component);
-
         const renderResult = component.render(data);
+        this._setElementsRole(component);
+        this._setComponentsRole(component);
 
         if (renderResult instanceof Promise) {
             return renderResult.then((renderResult) => {

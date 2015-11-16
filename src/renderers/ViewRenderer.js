@@ -31,9 +31,6 @@ export default class ViewRenderer extends ComponentRender {
         };
 
         view.init(properties);
-        view.create();
-
-        this._initComponents(view);
 
         if (properties) {
             view.$container.setAttribute('data-view-properties', JSON.stringify(properties));
@@ -44,6 +41,8 @@ export default class ViewRenderer extends ComponentRender {
         }
 
         return Promise.resolve(view.render(data)).then((content) => {
+            this._setComponentsRole(view);
+
             if (content) {
                 view.$container.empty().append(content);
             }
