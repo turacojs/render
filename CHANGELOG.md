@@ -1,3 +1,15 @@
+### v1.0.0
+
+BREAKING CHANGE
+
+removed create()
+
+Move your code from create to render.
+
+- [`7b94018`](https://github.com/git://github.com/turacojs/render.git/commit/7b94018bc0431100811a6ea5f7e9da6b88facc26) Update Index.jsx (Christophe Hurpeau)
+- [`3e00ed6`](https://github.com/git://github.com/turacojs/render.git/commit/3e00ed68235297c19b27ca2b02da20995162d0c1) breaking change : removed create() (Christophe Hurpeau)
+
+
 ### v0.1.16
 
 - [`f8223b5`](https://github.com/git://github.com/turacojs/render.git/commit/f8223b52f5e0526097f3429a36a7dae2655bb70c) fix in BrowserComponentRenderer on load (Christophe Hurpeau)
