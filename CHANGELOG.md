@@ -1,3 +1,8 @@
+### v1.1.0
+
+- [`9a974cd`](https://github.com/git://github.com/turacojs/render.git/commit/9a974cd3492fede216153547ad338b0f6fea2686) set renderer in view/component and component method in prototype of View/Component (Christophe Hurpeau)
+- [`b170c71`](https://github.com/git://github.com/turacojs/render.git/commit/b170c71d2c71ab9c1cc57d5bc6384164643d0ff0) ViewRenderer: _internalRender (Christophe Hurpeau)
+
 ### v1.0.0
 
 BREAKING CHANGE
