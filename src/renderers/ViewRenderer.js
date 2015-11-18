@@ -43,7 +43,11 @@ export default class ViewRenderer extends ComponentRender {
             dataLayout.title = view.title;
             dataLayout.content = view.$container;
 
-            return this.createThenRender(view.parent, undefined, dataLayout);
+            return this._internalRender(view, view.parent, undefined, dataLayout);
         });
+    }
+
+    _internalRender(sourceView, nameOrClass, properties, data) {
+        return this.createThenRender(sourceView, nameOrClass, properties, data);
     }
 }
