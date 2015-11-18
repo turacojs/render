@@ -40,14 +40,7 @@ export default class ComponentRenderer {
     }
 
     render(component, properties, data) {
-        component.component = componentClass => {
-            return properties => {
-                const data = properties.data;
-                delete properties.data;
-                return this.createThenRender(componentClass, properties, data);
-            };
-        };
-
+        component.renderer = this;
         component.init(properties);
 
         if (properties) {

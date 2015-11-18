@@ -40,4 +40,12 @@ export default class Component extends EventEmitter {
     toHtmlString() {
         return this.$container.outerHTML;
     }
+
+    component(componentClass) {
+        return properties => {
+            const data = properties.data;
+            delete properties.data;
+            return this.renderer.createThenRender(componentClass, properties, data);
+        };
+    }
 }

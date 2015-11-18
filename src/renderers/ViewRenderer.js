@@ -16,20 +16,7 @@ export default class ViewRenderer extends ComponentRender {
     }
 
     render(view, properties, data = {}) {
-        view.component = componentClass => {
-            return (properties, data) => {
-                if (!data) {
-                    data = properties && properties.data;
-
-                    if (properties) {
-                        delete properties.data;
-                    }
-                }
-
-                return this.componentRenderer.createThenRender(componentClass, properties, data);
-            };
-        };
-
+        view.renderer = this;
         view.init(properties);
 
         if (properties) {
