@@ -1,3 +1,7 @@
+### v1.1.1
+
+- [`1beefc5`](https://github.com/git://github.com/turacojs/render.git/commit/1beefc52aa52329f2a047bbd804dfb27e77d026e) fix browser index (Christophe Hurpeau)
+
 ### v1.1.0
 
 - [`9a974cd`](https://github.com/git://github.com/turacojs/render.git/commit/9a974cd3492fede216153547ad338b0f6fea2686) set renderer in view/component and component method in prototype of View/Component (Christophe Hurpeau)
