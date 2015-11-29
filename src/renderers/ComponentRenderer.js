@@ -30,6 +30,10 @@ export default class ComponentRenderer {
     _setComponentsRole(component) {
         if (component.components && component.components.length) {
             component.components.forEach((componentName) => {
+                if (component.elements && component.elements.indexOf(componentName) !== -1) {
+                    throw new Error('Key "' + componentName + '" already used for an element.');
+                }
+
                 if (!component[componentName]) {
                     throw new Error('Missing component ' + componentName);
                 }
