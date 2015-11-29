@@ -23,11 +23,9 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
                         view[componentName] = component;
                     });
                 });
-            } else {
-                promises = [];
             }
 
-            return Promise.all(promises).then(() => {
+            return Promise.all(promises || []).then(() => {
                 if (view.ready) {
                     view.ready(properties);
                 }

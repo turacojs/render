@@ -20,17 +20,37 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
                 });
             }
 
-            if (component.load) {
-                component.load(component.properties);
+            let promises;
+
+            if (component.components && component.components.length) {
+                promises = component.components.map((componentName) => {
+                    let $componentElement = component.$container.findFirst('[data-role="' + componentName + '"]');
+
+                    if (!$componentElement) {
+                        return null;
+                    }
+
+                    if (!$componentElement._component) {
+                        throw new Error('This is not a component');
+                    }
+
+                    return Promise.resolve($componentElement._component).then((internalComponent) => {
+                        component[componentName] = internalComponent;
+                    });
+                });
             }
 
-            if (component.ready) {
-                component.ready();
-            }
+            return Promise.all(promises || []).then(() => {
+                if (component.load) {
+                    component.load(component.properties);
+                }
 
-            $container._component = component;
+                if (component.ready) {
+                    component.ready();
+                }
 
-            return component;
+                $container._component = component;
+            }).then(() => component);
         });
         $container._component = promise;
         return promise;
