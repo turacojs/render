@@ -1,3 +1,7 @@
+### v1.1.3
+
+- [`adc46fd`](https://github.com/git://github.com/turacojs/render.git/commit/adc46fdee38f0eee2bdc97d413003eca1a8e5503) component: also load components (Christophe Hurpeau)
+
 ### v1.1.1
 
 - [`1beefc5`](https://github.com/git://github.com/turacojs/render.git/commit/1beefc52aa52329f2a047bbd804dfb27e77d026e) fix browser index (Christophe Hurpeau)
