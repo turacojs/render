@@ -12,8 +12,8 @@ export default class ViewFactory {
      * @param {Function|*} viewClass
      * @returns {View}
      */
-    create(viewClass) {
-        const view = this.instanceFactory(viewClass);
+    create(viewClass, options) {
+        const view = this.instanceFactory(viewClass, options);
         view.$container = $.create('div');
         view.$container.attr('data-view', view.constructor.name);
         return view;
@@ -23,8 +23,8 @@ export default class ViewFactory {
      * @param {string} viewName
      * @returns {View}
      */
-    load(viewName, $container) {
-        const view = this.instanceFactory(viewName);
+    load(viewName, $container, options) {
+        const view = this.instanceFactory(viewName, options);
         return Promise.resolve(view).then((view) => {
             view.$container = $container;
             return view;

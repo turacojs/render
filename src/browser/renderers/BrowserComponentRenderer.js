@@ -7,8 +7,8 @@ export default class BrowserComponentRenderer extends ComponentRenderer {
      * @param {string} componentName
      * @param {Element} $container
      */
-    load(componentName, $container) {
-        const promise = Promise.resolve(this.factory.load(componentName, $container)).then((component) => {
+    load(componentName, $container, options) {
+        const promise = Promise.resolve(this.factory.load(componentName, $container, options)).then((component) => {
             let properties = $container.getAttribute('data-component-properties');
             properties = properties && JSON.parse(properties);
             component.properties = properties || {};

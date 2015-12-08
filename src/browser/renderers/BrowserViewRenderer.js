@@ -5,8 +5,8 @@ export default class BrowserViewRenderer extends BrowserComponentRenderer {
     /**
      * Invoked only on browser just the first time
      */
-    load(viewName, $view) {
-        return Promise.resolve(this.factory.load(viewName, $view)).then((view) => {
+    load(viewName, $view, options) {
+        return Promise.resolve(this.factory.load(viewName, $view, options)).then((view) => {
             let properties = $view.getAttribute('data-view-properties');
             properties = properties && JSON.parse(properties);
             view.init(properties);
