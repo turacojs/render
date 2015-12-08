@@ -1,3 +1,7 @@
+### v1.2.0
+
+- [`f15c40f`](https://github.com/git://github.com/turacojs/render.git/commit/f15c40f2ee14e7f70e86c7843528d50892bfe25b) add options passed to factory (Christophe Hurpeau)
+
 ### v1.1.3
 
 - [`adc46fd`](https://github.com/git://github.com/turacojs/render.git/commit/adc46fdee38f0eee2bdc97d413003eca1a8e5503) component: also load components (Christophe Hurpeau)
