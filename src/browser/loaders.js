@@ -1,17 +1,17 @@
 import $ from 'springbokjs-dom/lib/$';
 
-export function loadComponents(componentLoader) {
+export function loadComponents(componentLoader, options) {
     $('[data-component]').forEach(($container) => {
         const componentName = $container.getAttribute('data-component');
-        componentLoader.load(componentName, $container);
+        componentLoader.load(componentName, $container, options);
     });
 }
 
-export function loadViews(viewLoader) {
+export function loadViews(viewLoader, options) {
     const views = new WeakMap();
     $('[data-view]').forEach(($view) => {
         const viewName = $view.getAttribute('data-view');
-        views[viewName] = viewLoader.load(viewName, $view);
+        views[viewName] = viewLoader.load(viewName, $view, options);
     }).forEach(($view) => {
         const parent = $view.getAttribute('data-view-parent');
 

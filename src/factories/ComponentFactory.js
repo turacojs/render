@@ -5,8 +5,8 @@ export default class ComponentFactory {
         this.instanceFactory = instanceFactory;
     }
 
-    create(componentClass, $container) {
-        const component = this.instanceFactory(componentClass);
+    create(componentClass, $container, options) {
+        const component = this.instanceFactory(componentClass, options);
         if ($container) {
             component.$container = $container;
         } else {
@@ -26,8 +26,8 @@ export default class ComponentFactory {
         return component;
     }
 
-    load(componentName, $container) {
-        const component = this.instanceFactory(componentName);
+    load(componentName, $container, options) {
+        const component = this.instanceFactory(componentName, options);
 
         return Promise.resolve(component).then((component) => {
             component.$container = $container;

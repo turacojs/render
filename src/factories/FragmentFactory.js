@@ -9,8 +9,8 @@ export default class FragmentFactory {
      * @param {Function|*} fragmentClass
      * @returns {*}
      */
-    create(fragmentClass) {
-        const fragment = this.instanceFactory(fragmentClass);
+    create(fragmentClass, options) {
+        const fragment = this.instanceFactory(fragmentClass, options);
         fragment.$fragment = $.createFragment();
         return fragment;
     }
